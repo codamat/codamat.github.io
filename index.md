@@ -96,3 +96,54 @@ git tag -a タグ名 （コミットID） -m "注釈"
 //タグ一覧
 git tag
 ```
+
+## ブランチ
+
+### ブランチを作成して切り替え
+
+```sh
+git switch -C ブランチ名
+
+git switch //切り替えのみ
+```
+
+### ブランチ一覧
+
+```sh
+git branch
+```
+
+### ブランチ削除
+
+```sh
+git branch -d ブランチ名 //merge済のみ
+
+git branch -D ブランチ名 //merge済でなくても削除
+```
+
+### 親ブランチ（main等）との変更確認
+
+```sh
+git log 親ブランチ..ブランチ //コミット表示
+
+git diff 親ブランチ..ブランチ //差分表示
+```
+
+### 統合
+
+#### merge (fast-forward,3-way)
+
+親ブランチへ移動した後
+
+```sh
+git merge 統合したいブランチ
+```
+
+#### merge (squash)
+
+ブランチを分けた時点から最新commitまでの差分が1つにまとまり、親ブランチにaddされる（commit前）
+mergeはされない
+
+```sh
+git merge --squash 統合したいブランチ
+```
