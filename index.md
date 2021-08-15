@@ -129,14 +129,17 @@ git log 親ブランチ..ブランチ //コミット表示
 git diff 親ブランチ..ブランチ //差分表示
 ```
 
-### 統合
+### ブランチの統合
 
-#### merge (fast-forward,3-way)
+#### merge - 合流 - (fast-forward,no-ff)
 
-親ブランチへ移動した後
 
 ```sh
-git merge 統合したいブランチ
+//親ブランチへ移動した後
+git merge トピックブランチ
+
+//fast-forwardできる状態でもマージコミットを残す時は
+git merge --no-ff トピックブランチ
 ```
 
 #### merge (squash)
@@ -145,5 +148,19 @@ git merge 統合したいブランチ
 mergeはされない
 
 ```sh
-git merge --squash 統合したいブランチ
+git merge --squash トピックブランチ
+```
+
+#### rebase - 付け替え -
+
+変更の起点をmainの最新コミットで置き換える
+ローカルでのみ使用推奨
+
+```sh
+//トピックブランチブランチにいる状態で
+git rebase main
+
+//mainへ移動した後、merge
+git merge トピックブランチ
+
 ```
