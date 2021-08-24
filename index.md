@@ -29,8 +29,6 @@ git diff
 git diff --staged
 ```
 
-![diff](img/git-diff.jpg)
-
 ### ステージングエリアにあるファイルの一覧
 
 ```sh
@@ -84,7 +82,7 @@ git show コミットID
 git show タグ名
 ```
 
-### タグをコミットにつける（バージョン情報など）
+### タグをつける（version情報など）
 
 ```sh
 //コミットを指定しないと最新のコミットにつく
@@ -95,6 +93,9 @@ git tag -a タグ名 （コミットID） -m "注釈"
 
 //タグ一覧
 git tag
+
+//ローカルのタグを削除
+git tag -d タグ名 （コミットID）
 ```
 
 ## ブランチ
@@ -111,14 +112,25 @@ git switch //切り替えのみ
 
 ```sh
 git branch
+
+//リモート追跡ブランチの一覧
+git branch -r
+
+//コミットIDとメッセージと追跡リモート付き一覧
+git branch -vv
+
+//リモートも含めた全てのブランチ一覧
+git branch -a
 ```
 
 ### ブランチ削除
 
 ```sh
-git branch -d ブランチ名 //merge済のみ
+//merge済のみ削除
+git branch -d ブランチ名
 
-git branch -D ブランチ名 //merge済でなくても削除
+//merge済でなくても削除
+git branch -D ブランチ名
 ```
 
 ### 親ブランチ（main等）との変更確認
@@ -163,4 +175,144 @@ git rebase main
 //mainへ移動した後、merge
 git merge トピックブランチ
 
+```
+
+## リモートリポジトリ
+
+### ローカルにクローン
+
+```sh
+//リポジトリ名のフォルダが作成され、クローンされる
+git clone リモートリポジトリのクローンURL
+```
+
+### リモートリポジトリ
+
+```sh
+//リモートリポジトリの一覧
+git remote
+
+//fetchやpushする時のURLも表示
+git remote -v
+
+//既にリモートで削除されているブランチを消す
+git remote pune origin
+```
+
+### リモートリポジトリのコミットを取得
+
+#### fetch
+
+```sh
+//リモート追跡ブランチ（origin/main）が更新される
+git fetch
+
+//fetchでエラーがあった等で戻したい時
+git reset --hard HEAD
+```
+
+#### pull
+
+```sh
+//fetch + merge
+git pull
+
+//fetch + rebase
+//ローカルの変更がリモートの後になるので履歴が綺麗
+git pull --rebase
+```
+
+### push
+
+```sh
+git push （origin main）
+
+//ローカルのタグをリモートに同期
+git push origin タグ名
+
+//リモートからタグを削除
+git push origin --delete タグ名
+
+//リモート追跡ブランチを作りながらpush
+git push -u origin ブランチ名
+```
+
+## コミットの取り消し
+
+### reset（なかった事にする）
+
+```sh
+//HEADとmainの位置を1つ前のコミットに戻す
+git reset --soft HEAD~1
+
+//ステージングエリアも1つ前に戻す
+git reset （--mixed） HEAD
+
+//ワーキングディレクトリも戻す
+git reset --hard HEAD
+
+//全てを1つ前に戻す
+git reset --hard HEAD~1
+```
+
+### revert（取り消しコミットを作る）
+
+```sh
+//1つ前に戻したコミットを新たに作成する
+git revert HEAD
+```
+
+### 取り消したコミットを復元
+
+```sh
+//HEADの移動履歴を表示
+git reflog
+
+//履歴から戻りたいHEAD位置をコピー・ペースト
+git reset --hard HEAD@{1}
+
+//ただしPowerShellではエラーになるため''で囲む
+git reset --hard 'HEAD@{1}'
+```
+
+### 最新コミットを修正
+
+```sh
+git commit --amend -m "修正したコミットメッセージ"
+```
+
+### 過去のコミットを修正
+
+```sh
+git rebase -i 修正したいコミットの1つ前のコミットID
+↓
+//修正したいコミットの「pick」を「edit」に変更してSTART
+↓
+//修正したいファイルを修正
+↓
+git add .
+↓
+git commit --amend
+↓
+git rebase --continue
+//continueせず途中で抜けたい場合は
+git rebase --abort
+```
+
+### コミットを並べ替える
+
+```sh
+git rebase -i 並び替えたいコミット達の1つ前のコミットID
+↓
+//指定コミットにカーソルを置き「alt+矢印」で移動（VSCode）
+```
+
+### 過去のコミットを統合
+
+```sh
+git rebase -i 統合したいコミット達の1つ前のコミットID
+↓
+//統合したいコミット（後の方）の「pick」を「squash」に変更
+↓
+//1つ前のコミットと統合される
 ```
