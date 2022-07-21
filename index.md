@@ -11,6 +11,8 @@ git add .
 git commit -m "メッセージ"
 ```
 
+`commit`には`記憶に留める・格納する`といった意味がある
+
 ## コミット前の確認
 
 ### 変更を表示
@@ -179,6 +181,22 @@ git merge トピックブランチ
 
 ## リモートリポジトリ
 
+### push
+
+```sh
+//上流（upstream）ブランチ（リモート追跡ブランチ）を設定しながらpush
+git push -u origin ブランチ名
+
+//上流ブランチを設定しておくとorigin mainは省略できる
+git push (origin main)
+
+//ローカルのタグをリモートに同期
+git push origin タグ名
+
+//リモートからタグを削除
+git push origin --delete タグ名
+```
+
 ### ローカルにクローン
 
 ```sh
@@ -194,6 +212,9 @@ git remote
 
 //fetchやpushする時のURLも表示
 git remote -v
+
+//ローカルからリモートリポジトリへ接続
+git remote add origin リモートリポジトリのURL
 
 //既にリモートで削除されているブランチを消す
 git remote pune origin
@@ -220,21 +241,6 @@ git pull
 //fetch + rebase
 //ローカルの変更がリモートの後になるので履歴が綺麗
 git pull --rebase
-```
-
-### push
-
-```sh
-git push （origin main）
-
-//ローカルのタグをリモートに同期
-git push origin タグ名
-
-//リモートからタグを削除
-git push origin --delete タグ名
-
-//リモート追跡ブランチを作りながらpush
-git push -u origin ブランチ名
 ```
 
 ## コミットの取り消し
