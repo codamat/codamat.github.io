@@ -102,6 +102,10 @@ git tag -d タグ名 （コミットID）
 
 ## ブランチ
 
+ブランチは「別ルートのセーブデータ」
+
+![](img/branch.png)
+
 ### ブランチを作成して切り替え
 
 ```sh
@@ -123,6 +127,9 @@ git branch -vv
 
 //リモートも含めた全てのブランチ一覧
 git branch -a
+
+//ブランチ名変更
+git branch -m <old> <new>
 ```
 
 ### ブランチ削除
@@ -322,3 +329,18 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 ↓
 //1つ前のコミットと統合される
 ```
+
+## プルリクエスト - GitHubの機能 -
+
+- 異なるブランチを統合したい（merge）
+- コンフリクトの自動チェック
+- mergeする前にコードチェック
+- 確認した内容にコメント
+- 確認OKならmerge
+
+などをまとめた機能
+
+![Pull Request](img/pull-request.png)
+
+別ブランチをはじめてPushした時に背景黄色で表示される
+![compare and pullrequest](img/compare-and-pullrequest.png)
