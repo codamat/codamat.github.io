@@ -338,8 +338,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 
 などをまとめた機能
 
-![Pull Request](img/pull-request.png)
-
 別ブランチをはじめてPushした時に背景黄色で表示される
 ![compare and pullrequest](img/compare-and-pullrequest.png)
+
 
