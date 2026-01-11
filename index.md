@@ -328,17 +328,5 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 //1つ前のコミットと統合される
 ```
 
-## プルリクエスト - GitHubの機能 -
-
-- 異なるブランチを統合したい（merge）
-- コンフリクトの自動チェック
-- mergeする前にコードチェック
-- 確認した内容にコメント
-- 確認OKならmerge
-
-などをまとめた機能
-
-別ブランチをはじめてPushした時に背景黄色で表示される
-![compare and pullrequest](img/compare-and-pullrequest.png)
 
 
