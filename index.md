@@ -379,7 +379,7 @@ git commit --amend -m "修正したコミットメッセージ"
 ```sh
 git add 追加したいファイル
 ```
-↓
+→
 ```sh
 git commit --amend
 ```
@@ -389,19 +389,19 @@ git commit --amend
 ```sh
 git rebase -i 修正したいコミットの1つ前のコミットID
 ```
-↓
+→
 修正したいコミットの「pick」を「edit」に変更してSTART
-↓
+→
 修正したいファイルを修正
-↓
+→
 ```sh
 git add .
 ```
-↓
+→
 ```sh
 git commit --amend
 ```
-↓
+→
 ```sh
 git rebase --continue
 ```
@@ -415,7 +415,7 @@ git rebase --abort
 ```sh
 git rebase -i 並び替えたいコミット達の1つ前のコミットID
 ```
-↓
+→
 指定コミットにカーソルを置き「alt+矢印」で移動（VSCode）
 
 ### 過去のコミットを統合
@@ -423,10 +423,11 @@ git rebase -i 並び替えたいコミット達の1つ前のコミットID
 ```sh
 git rebase -i 統合したいコミット達の1つ前のコミットID
 ```
-↓
+→
 統合したいコミット（後の方）の「pick」を「squash」に変更
-↓
+→
 1つ前のコミットと統合される
+
 
 
 
