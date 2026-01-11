@@ -104,8 +104,6 @@ git tag -d タグ名 （コミットID）
 
 ブランチは「別ルートのセーブデータ」
 
-![](img/branch.png)
-
 ### ブランチを作成して切り替え
 
 ```sh
@@ -344,3 +342,4 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 
 別ブランチをはじめてPushした時に背景黄色で表示される
 ![compare and pullrequest](img/compare-and-pullrequest.png)
+
