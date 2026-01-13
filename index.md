@@ -110,7 +110,7 @@ git restore --staged ファイル名
 
 #### さらにGitの管理からも完全に外す
 ```sh
-git rm --staged ファイル名
+git rm --cached ファイル名
 ```
 
 |コマンド|目的|ファイルはどうなる？|
@@ -120,7 +120,7 @@ git rm --staged ファイル名
 
 |コマンド|ファイルの追跡（Track）状態|目的|
 |---|---|---|
-|**`git rm --staged`**|**追跡を完全にやめる**|今後Gitで管理したくない（後でIgnoreしたい）時|
+|**`git rm --cached`**|**追跡を完全にやめる**|今後Gitで管理したくない（後でIgnoreしたい）時|
 |**`git restore --staged`**|**追跡は継続する**|「今した `git add`」だけを取り消したい（Unstage）時|
 
 
@@ -500,6 +500,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
