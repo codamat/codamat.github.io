@@ -156,7 +156,7 @@ git rm -f ファイル名
 git rm *.tmp
 ```
 
-## gitignoreの書き方（例）
+## gitignoreの書き方
 .gitignoreファイルに記述するパターンは、行ごとに指定します
 - ファイル名: config.yml（config.ymlという名前のファイルを無視）
 - ディレクトリ: build/（buildディレクトリとその中身を無視）
@@ -540,6 +540,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
