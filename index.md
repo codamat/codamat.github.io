@@ -125,7 +125,7 @@ git rm -r --cached node_modules/
 |**`git restore --staged`**|**追跡は継続する**|「今した `git add`」だけを取り消したい（Unstage）時|
 
 ## rmコマンド
-- 「remove（取り除く）」の略
+remove（取り除く）
 ### 1. ファイルも消すし、Gitの追跡もやめる
 ```sh
 git rm ファイル名
@@ -137,7 +137,7 @@ git rm ファイル名
 ```sh
 git rm  -r ディレクトリ名/
 ```
-- 「recursive（再帰的）」の略
+「recursive（再帰的）」にフォルダを削除する
 
 ### 3. ファイルは手元に残すが、Gitの管理対象からは外す
 ```sh
@@ -541,6 +541,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
