@@ -124,7 +124,7 @@ git rm -r --cached node_modules/
 |**`git rm --cached`**|**追跡を完全にやめる**|今後Gitで管理したくない（後でIgnoreしたい）時|
 |**`git restore --staged`**|**追跡は継続する**|「今した `git add`」だけを取り消したい（Unstage）時|
 
-## rmコマンド
+## 「git rm」コマンド
 remove（取り除く）
 ### 1. ファイルも消すし、Gitの追跡もやめる
 ```sh
@@ -155,6 +155,26 @@ git rm -f ファイル名
 
 ```bash
 git rm *.tmp
+```
+
+## 「git mv」コマンド
+
+### ファイル名の変更
+```bash
+git mv old.txt new.txt
+```
+
+### ファイルの移動
+```bash
+git mv ファイル名 ディレクトリ名/
+```
+
+### 「git mv」コマンドの動作
+例えばファイル名の変更の場合「git mv」は以下の3つのステップを1回で実行します
+```bash
+mv old.txt new.txt
+git rm old.txt
+git add new.txt
 ```
 
 ## gitignoreの書き方
@@ -541,6 +561,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
