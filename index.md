@@ -27,7 +27,7 @@ git add -u
 ```sh
 git commit -m "メッセージ"
 ```
-`commit`には`記憶に留める・格納する`といった意味がある
+`commit`は`記憶に留める・格納する`といった意味
 
 ---
 ## コミット前の確認
@@ -118,7 +118,6 @@ node_modulesフォルダを外したい場合
 ```bash
 git rm -r --cached node_modules/
 ```
--rはrecursive（再帰的）の略
 
 |コマンド|ファイルの追跡（Track）状態|目的|
 |---|---|---|
@@ -126,7 +125,7 @@ git rm -r --cached node_modules/
 |**`git restore --staged`**|**追跡は継続する**|「今した `git add`」だけを取り消したい（Unstage）時|
 
 ## rmコマンド
-remove（取り除く）
+- 「remove（取り除く）」の略
 ### 1. ファイルも消すし、Gitの追跡もやめる
 ```sh
 git rm ファイル名
@@ -138,6 +137,7 @@ git rm ファイル名
 ```sh
 git rm  -r ディレクトリ名/
 ```
+- 「recursive（再帰的）」の略
 
 ### 3. ファイルは手元に残すが、Gitの管理対象からは外す
 ```sh
@@ -541,6 +541,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
