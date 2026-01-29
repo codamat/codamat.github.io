@@ -61,7 +61,7 @@ git ls-files -d
 
 ### 差分表示
 
-#### ワーキングディレクトリとステージングエリア（インデックス）の差分
+#### ワーキング（作業）ディレクトリとステージングエリア（インデックス）の差分
 まだ`git add`していない変更
 ```sh
 git diff
@@ -480,30 +480,40 @@ git pull --rebase
 
 ### reset（なかった事にする）
 
-#### HEADとHEADが指しているブランチ（のポインタ）の位置を指定したコミットに移動する
+#### オプションは3段階
+
+1. `--soft` : HEAD が指し示すブランチを移動する（ポインタの移動のみ）
+2. `--mixed`（省略可） : `--soft` ＋ インデックスの内容をHEADと同じにする
+3. `--hard` : `--soft` ＋ `--mixed` ＋ 作業ディレクトリの内容をインデックスと同じにする
+
+#### 直前の`git commit`を取り消す
 ```sh
-git reset --soft コミットID
+git reset --soft HEAD~
 ```
 
-#### HEADとHEADが指しているブランチ（のポインタ）の位置を1つ前のコミットに戻す
+#### 直前の`git add`を取り消す
 ```sh
-git reset --soft HEAD~1
+git reset HEAD
 ```
 
-#### ステージングエリアも1つ前に戻す
+#### 直前の`git commit`と`git add`を取り消す
 ```sh
-git reset （--mixed） HEAD
+git reset HEAD~
 ```
-`--mixed`は`git reset`のデフォルト動作なので記入しなくてよい
 
-#### ワーキングディレクトリも戻す
+#### 全てを直前のコミットの状態に戻す
 ```sh
 git reset --hard HEAD
 ```
 
-#### 全てを1つ前に戻す
+#### 全てを1つ前のコミットの状態に戻す
 ```sh
-git reset --hard HEAD~1
+git reset --hard HEAD~
+```
+
+#### 指定したコミットまで戻す
+```sh
+git reset --オプション コミットID
 ```
 
 ### revert（取り消しコミットを作る）
@@ -593,6 +603,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
