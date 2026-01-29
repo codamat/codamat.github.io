@@ -480,6 +480,11 @@ git pull --rebase
 
 ### reset（なかった事にする）
 
+#### HEADとHEADが指しているブランチ（のポインタ）の位置を指定したコミットに移動する
+```sh
+git reset --soft コミットID
+```
+
 #### HEADとHEADが指しているブランチ（のポインタ）の位置を1つ前のコミットに戻す
 ```sh
 git reset --soft HEAD~1
@@ -587,6 +592,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
