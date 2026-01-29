@@ -494,6 +494,7 @@ git reset --soft HEAD~1
 ```sh
 git reset （--mixed） HEAD
 ```
+`--mixed`は`git reset`のデフォルト動作なので記入しなくてよい
 
 #### ワーキングディレクトリも戻す
 ```sh
@@ -592,6 +593,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
