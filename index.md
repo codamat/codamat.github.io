@@ -445,7 +445,7 @@ git remote add origin リモートリポジトリのURL
 
 #### 既にリモートで削除されているブランチを消す
 ```sh
-git remote pune origin
+git remote prune origin
 ```
 
 ### リモートリポジトリのコミットを取得
@@ -603,6 +603,7 @@ git rebase -i 統合したいコミット達の1つ前のコミットID
 統合したいコミット（後の方）の「pick」を「squash」に変更
 →
 1つ前のコミットと統合される
+
 
 
 
